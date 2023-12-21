@@ -17,9 +17,12 @@ $query = mysqli_query($conn,$sql);
 <body>
     <table border="1">
         <tr>
-            <td>
-                
-            </td>
+            <td>nik</td>
+            <td>nama</td>
+            <td>email</td>
+            <td>departemen</td>
+            <td>foto</td>
+            <td>aksi</td>
         </tr>
         <?php while ($result = mysqli_fetch_assoc($query)){ ?>
         <tr>
@@ -28,6 +31,11 @@ $query = mysqli_query($conn,$sql);
             <td> <?= $result['email']?> </td>
             <td> <?= $result['departemen']?> </td>
             <td> <img src="./img/<?= $result['foto'] ?>" alt="" width="200"> </td>
+            <td>
+                <a href="update.php?edit=<?= $result['id'] ?>">edit</a>
+                <br>
+                <a href="delete.php?hapus=<?= $result['id']?>">hapus</a>
+            </td>
         </tr>
 
         <?php
